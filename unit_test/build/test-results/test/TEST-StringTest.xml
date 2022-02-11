@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="StringTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-02-11T06:55:21" hostname="kakaoui-MacBookPro-4.local" time="0.098">
+  <properties/>
+  <testcase name="codePointAt" classname="StringTest" time="0.074"/>
+  <testcase name="dropLast" classname="StringTest" time="0.022"/>
+  <testcase name="drop" classname="StringTest" time="0.001"/>
+  <testcase name="plus" classname="StringTest" time="0.0"/>
+  <testcase name="stringWithIndex" classname="StringTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
