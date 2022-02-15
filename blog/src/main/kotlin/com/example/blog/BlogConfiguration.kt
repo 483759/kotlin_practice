@@ -10,7 +10,7 @@ class BlogConfiguration {
     @Bean
     fun databaseInitializer(userRepository: UserRepository,
     articleRepository: ArticleRepository) = ApplicationRunner {
-        val binary = userRepository.save(User("binary.yun", "binary", "yun"))
+        val binary = userRepository.save(User("springbinary", "binary", "yun"))
         articleRepository.save(Article(
             title = "Hello World",
             headline = "I am foo",
