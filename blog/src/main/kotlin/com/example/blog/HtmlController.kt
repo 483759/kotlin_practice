@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.server.ResponseStatusException
 
 @Controller
-class HtmlController(private val repository: ArticleRepository,
-private val properties: BlogProperties) {
+class HtmlController(
+    private val repository: ArticleRepository,
+    private val properties: BlogProperties
+) {
 
     @GetMapping("/")
     fun blog(model: Model): String {

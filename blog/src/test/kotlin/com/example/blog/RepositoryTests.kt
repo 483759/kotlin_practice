@@ -23,7 +23,7 @@ class RepositoryTests @Autowired constructor(
 
         val article = Article("Spring Boot and Kotlin is difficult", "I'm foo", "I want money", binary)
         entityManager.persist(article)  // 이거 오타나서 binary로 해봤는데, 아래에 id 필드 접근하는 부분에서 NPE발생
-                                        // @GeneratedValue로 생성되는 시점은 flush 되고 나서부터 인듯
+        // @GeneratedValue로 생성되는 시점은 flush 되고 나서부터 인듯
         entityManager.flush()
 
         val found = articleRepository.findByIdOrNull(article.id!!)

@@ -39,5 +39,4 @@ class IntegrationTests(@Autowired val restTemplate: TestRestTemplate) {
     fun teardown() {
         println(">> Tear down")
     }
-
 }

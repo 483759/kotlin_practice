@@ -3,7 +3,7 @@ package com.example.blog
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatterBuilder
 import java.time.temporal.ChronoField
-import java.util.*
+import java.util.Locale
 
 fun LocalDateTime.format() = this.format(englishDateFormatter)
 
@@ -17,7 +17,6 @@ private val englishDateFormatter = DateTimeFormatterBuilder()
     .appendPattern("yyyy")
     .toFormatter(Locale.ENGLISH)
 
-
 private fun getOrdinal(n: Int) = when {
     n in 11..13 -> "${n}th"
     n % 10 == 1 -> "${n}st"
@@ -30,5 +29,5 @@ fun String.toSlug() = lowercase()
     .replace("\n", " ")
     .replace("[^a-z\\d\\s]".toRegex(), " ")
     .split(" ")
-    .joinToString ( "-" )
+    .joinToString("-")
     .replace("-+".toRegex(), "-")
