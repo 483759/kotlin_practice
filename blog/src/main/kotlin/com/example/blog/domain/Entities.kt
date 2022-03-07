@@ -1,5 +1,6 @@
 package com.example.blog
 
+import com.example.blog.config.toSlug
 import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

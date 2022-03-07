@@ -1,5 +1,9 @@
-package com.example.blog
+package com.example.blog.config
 
+import com.example.blog.Article
+import com.example.blog.ArticleRepository
+import com.example.blog.User
+import com.example.blog.UserRepository
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
