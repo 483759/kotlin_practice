@@ -4,7 +4,7 @@ import hello.core.member.domain.FindMemberPort
 import hello.core.member.domain.Member
 import hello.core.member.domain.SignUpMemberPort
 
-class MemoryMemberRepository: SignUpMemberPort, FindMemberPort {
+class MemoryMemberRepository : SignUpMemberPort, FindMemberPort {
     companion object {
         val store: HashMap<Long, Member> = HashMap()
     }
