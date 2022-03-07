@@ -1,5 +1,10 @@
-package com.example.blog
+package com.example.blog.adaptor.web
 
+import com.example.blog.Article
+import com.example.blog.User
+import com.example.blog.application.ArticleService
+import com.example.blog.config.BlogProperties
+import com.example.blog.config.format
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -10,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException
 
 @Controller
 class HtmlController(
-    private val repository: ArticleRepository,
+    private val articleService: ArticleService,
     private val properties: BlogProperties
 ) {
 
@@ -18,17 +23,20 @@ class HtmlController(
     fun blog(model: Model): String {
         model["title"] = "Blog"
         model["banner"] = properties.banner
-        model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
+        model["articles"] = articleService.findAll().map { it.render() }
 
         return "blog"
     }
 
     @GetMapping("/article/{slug}")
     fun article(@PathVariable slug: String, model: Model): String {
-        val article = repository
-            .findBySlug(slug)
-            ?.render()
-            ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This article does not exist")
+        val article = try {
+            articleService
+                .findOneBySlug(slug)
+                ?.render()
+        } catch (e: IllegalArgumentException) {
+           throw ResponseStatusException(HttpStatus.NOT_FOUND, e.message)
+        }
 
         model["title"] = article.title
         model["article"] = article
